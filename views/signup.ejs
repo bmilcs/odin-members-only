@@ -1,0 +1,44 @@
+<%- include('partials/header') %>
+
+<form method="post" action="/signup">
+  <input type="email" name="email" placeholder="Email" aria-label="Email" />
+  <input
+    type="text"
+    name="firstName"
+    placeholder="First Name"
+    aria-label="First Name"
+  />
+  <input
+    type="text"
+    name="lastName"
+    placeholder="Last Name"
+    aria-label="Last Name"
+  />
+  <input
+    type="text"
+    name="username"
+    placeholder="Username"
+    aria-label="Username"
+  />
+  <input
+    type="password"
+    name="password"
+    placeholder="Password"
+    aria-label="Password"
+  />
+  <input
+    type="password"
+    name="passwordConfirmation"
+    placeholder="Confirm Password"
+    aria-label="Confirm Password"
+  />
+  <input
+    type="password"
+    name="secretCode"
+    placeholder="Secret Code = 'imember'"
+    aria-label="Secret Code"
+  />
+  <button type="submit">Signup</button>
+</form>
+
+<%- include('partials/footer') %>
