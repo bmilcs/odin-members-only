@@ -1,44 +1,30 @@
 const express = require("express");
 const router = express.Router();
+const messageController = require("../controllers/messageController");
+const userController = require("../controllers/userController");
 
-// homepage route
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
-});
-
-// signup
-router
-  .route("/signup")
-  .get((req, res) => {
-    res.render("signup");
-  })
-  .post((req, res) => {
-    res.send(req.body);
-  });
-
-// login
-router
-  .route("/login")
-  .get((req, res) => {
-    res.render("login");
-  })
-  .post((req, res) => {
-    res.send(req.body);
-  });
-
-// logout
-router.get("/logout", (req, res) => {
-  res.send("logout route");
-});
+// homepage
+router.get("/", messageController.index);
 
 // messages
 router
-  .route("/messages")
-  .get((req, res) => {
-    res.send("messages route");
-  })
-  .post((req, res) => {
-    res.send(req.body);
-  });
+  .route("/message")
+  .get(messageController.message_get)
+  .post(messageController.message_post);
+
+// user signup
+router
+  .route("/signup")
+  .get(userController.signup_get)
+  .post(userController.signup_post);
+
+// user login
+router
+  .route("/login")
+  .get(userController.login_get)
+  .post(userController.login_post);
+
+// user logout
+router.get("/logout", userController.logout_get);
 
 module.exports = router;
