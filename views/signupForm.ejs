@@ -1,32 +1,38 @@
 <%- include('partials/header') %>
 
 <section aria-label="Sign Up" class="mx-auto flex flex-col text-center">
+  <!-- page header -->
   <h1
-    class="text-2xl font-black tracking-tight uppercase sm:text-3xl md:text-4xl lg:text-5xl"
+    class="text-2xl font-black uppercase tracking-tight sm:text-3xl md:text-4xl lg:text-5xl"
   >
     Join Us!
   </h1>
   <p
-    class="text-sm sm:text-base md:text-lg lg:text-xl text-stone-400 sm:mt-1 md:mt-2 mb-8"
+    class="mb-8 text-sm text-stone-400 sm:mt-1 sm:text-base md:mt-2 md:text-lg lg:text-xl"
   >
     Fill out the form below to join the club
   </p>
 
+  <!-- error handling -->
   <% if (errors.length > 0) { %>
   <div
-    class="border-red-500 text-red-400 border-2 border-solid rounded-md max-w-screen-sm mx-auto form-width mb-8 p-4 text-left text-sm sm:text-base"
+    class="form-width mx-auto mb-8 max-w-screen-sm rounded-md border-2 border-solid border-red-500 p-4 text-left text-sm text-red-400 sm:text-base"
   >
     <h2 class="font-bold">Something went wrong:</h2>
-    <% errors.forEach(error => { %>
-    <li><%= error.msg %></li>
-    </li>
-  </div>
-  <% }) %> <% } %>
 
+    <ul>
+      <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  </div>
+  <% } %>
+
+  <!-- signup form -->
   <form
     method="post"
     action="/signup"
-    class="grid gap-4 mx-auto form-width bg-zinc-900 p-4 rounded-md"
+    class="form-width mx-auto grid gap-4 rounded-md bg-zinc-900 p-4"
   >
     <input
       type="email"
@@ -36,7 +42,7 @@
       minlength="5"
       maxlength="320"
       required
-      class="bg-zinc-800 text-stone-200 md:text-base placeholder-stone-400 border border-zinc-700 text-sm rounded-md focus:ring-red-500 focus:border-red-500 block w-full p-2.5"
+      class="block w-full rounded-md border-2 border-zinc-700 bg-zinc-800 p-2.5 text-sm text-stone-200 placeholder-stone-400 valid:border-green-500 focus:border-stone-400 focus:outline-none valid:focus:border-green-500 md:text-base invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
     />
     <input
       type="text"
@@ -46,7 +52,7 @@
       minlength="2"
       maxlength="50"
       required
-      class="bg-zinc-800 text-stone-200 md:text-base placeholder-stone-400 border border-zinc-700 text-sm rounded-md focus:ring-red-500 focus:border-red-500 block w-full p-2.5"
+      class="block w-full rounded-md border-2 border-zinc-700 bg-zinc-800 p-2.5 text-sm text-stone-200 placeholder-stone-400 valid:border-green-500 focus:border-stone-400 focus:outline-none valid:focus:border-green-500 md:text-base invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
     />
     <input
       type="text"
@@ -56,7 +62,7 @@
       minlength="2"
       maxlength="50"
       required
-      class="bg-zinc-800 text-stone-200 md:text-base placeholder-stone-400 border border-zinc-700 text-sm rounded-md focus:ring-red-500 focus:border-red-500 block w-full p-2.5"
+      class="block w-full rounded-md border-2 border-zinc-700 bg-zinc-800 p-2.5 text-sm text-stone-200 placeholder-stone-400 valid:border-green-500 focus:border-stone-400 focus:outline-none valid:focus:border-green-500 md:text-base invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
     />
     <input
       type="text"
@@ -66,7 +72,7 @@
       minlength="3"
       maxlength="30"
       required
-      class="bg-zinc-800 text-stone-200 md:text-base placeholder-stone-400 border border-zinc-700 text-sm rounded-md focus:ring-red-500 focus:border-red-500 block w-full p-2.5"
+      class="block w-full rounded-md border-2 border-zinc-700 bg-zinc-800 p-2.5 text-sm text-stone-200 placeholder-stone-400 valid:border-green-500 focus:border-stone-400 focus:outline-none valid:focus:border-green-500 md:text-base invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
     />
     <input
       type="password"
@@ -76,33 +82,36 @@
       minlength="8"
       maxlength="30"
       required
-      class="bg-zinc-800 text-stone-200 md:text-base placeholder-stone-400 border border-zinc-700 text-sm rounded-md focus:ring-red-500 focus:border-red-500 block w-full p-2.5"
+      class="block w-full rounded-md border-2 border-zinc-700 bg-zinc-800 p-2.5 text-sm text-stone-200 placeholder-stone-400 valid:border-green-500 focus:border-stone-400 focus:outline-none valid:focus:border-green-500 md:text-base invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
     />
     <input
       type="password"
       name="passwordConfirmation"
       placeholder="Confirm Password"
       aria-label="Confirm Password"
-            minlength="8"
+      minlength="8"
       maxlength="30"
       required
-      class="bg-zinc-800 text-stone-200 md:text-base placeholder-stone-400 border border-zinc-700 text-sm rounded-md focus:ring-red-500 focus:border-red-500 block w-full p-2.5"
+      class="block w-full rounded-md border-2 border-zinc-700 bg-zinc-800 p-2.5 text-sm text-stone-200 placeholder-stone-400 valid:border-green-500 focus:border-stone-400 focus:outline-none valid:focus:border-green-500 md:text-base invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
     />
     <input
       type="password"
       name="secretCode"
       placeholder="Secret Code = 'imember'"
       aria-label="Secret Code"
-      class="bg-zinc-800 text-stone-200 md:text-base placeholder-stone-400 border border-zinc-700 text-sm rounded-md focus:ring-red-500 focus:border-red-500 block w-full p-2.5"
+      class="block w-full rounded-md border-2 border-zinc-700 bg-zinc-800 p-2.5 text-sm text-stone-200 placeholder-stone-400 focus:border-stone-400 focus:outline-none md:text-base invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
     />
+    <button
+      class="mx-auto my-6 rounded-md bg-red-700 px-8 py-2 font-bold tracking-wide transition-all hover:scale-105 hover:bg-red-600 md:px-12 md:py-3 md:text-lg lg:px-16"
+      type="submit"
+    >
+      Signup
+    </button>
   </form>
 
-  <button
-    class="bg-red-700 py-2 md:text-lg md:py-3 my-6 px-8 md:px-12 lg:px-16 font-bold tracking-wide rounded-md mx-auto transition-all hover:bg-red-600"
-    type="submit"
+  <a href="/login" class="mt-8 hover:font-bold hover:text-red-500"
+    >Already have an account? Login here.</a
   >
-    Signup
-  </button>
 </section>
 
 <%- include('partials/footer') %>
